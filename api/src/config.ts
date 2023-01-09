@@ -1,0 +1,45 @@
+
+import { Secret } from "jsonwebtoken";
+import path from "path";
+import dotenv from "dotenv";
+
+// Parsing the env file.
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+
+interface ENV {
+    SECRET_KEY: Secret | undefined;
+    USER_NAME: string | undefined;
+    USER_LASTNAME: string | undefined;
+}
+
+interface Config {
+    SECRET_KEY: Secret;
+    USER_NAME: string;
+    USER_LASTNAME: string;
+}
+
+// Loading process.env as ENV interface
+const getConfig = (): ENV => {
+  return {
+    SECRET_KEY: process.env.SECRET_KEY,
+    USER_NAME: process.env.USER_NAME,
+    USER_LASTNAME: process.env.USER_LASTNAME
+  };
+};
+
+// Throwing an Error if any field was undefined we don't 
+// If all is good return
+const getSanitzedConfig = (config: ENV): Config => {
+  for (const [key, value] of Object.entries(config)) {
+    if (value === undefined) {
+      throw new Error(`Missing key ${key} in .env file`);
+    }
+  }
+  return config as Config;
+};
+
+const config = getConfig();
+
+const sanitizedConfig = getSanitzedConfig(config);
+
+export default sanitizedConfig;
