@@ -20,6 +20,11 @@ export type Author = {
 };
 
 export type ResposeItems = {
+  categories: Array<string>;
+  items: Array<Item>;
+};
+
+export type ResposeItemsWithAuthor = {
   author: Author;
   categories: Array<string>;
   items: Array<Item>;

@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+
 import { user } from "../../data";
+import { Author } from "../types";
 import config from "../config";
 
 export const authenticate = async (req: Request, res: Response) => {
@@ -25,7 +27,16 @@ export const validateToken = (
   if (token && token.startsWith("Bearer ")) {
     const bearerToken = token.slice(7);
     try {
-      jwt.verify(bearerToken, config.SECRET_KEY) && next();
+      const decoded = jwt.verify(bearerToken, config.SECRET_KEY) as Author;
+      if (decoded) {
+        const { name, lastname } = decoded;
+        const payload: Author = {
+          name,
+          lastname,
+        };
+        req.body.inject = { author: payload };
+        next();
+      }
     } catch (error) {
       return res.status(401).json({ error: "Unauthorized" });
     }

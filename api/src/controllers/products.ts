@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import fetch from "node-fetch";
 
-import { Item, ResposeItems } from "../types"
+import { Item, ResposeItems, ResposeItemsWithAuthor } from "../types";
+import config from "../config";
 
-const API_URL = "https://api.mercadolibre.com";
-
+const { API_URL, SEARCH_ENDPOINT } = config;
 
 const getItems = async (q: string) => {
-  const url = `${API_URL}/sites/MLA/search?q=${q}`;
+  const url = `${API_URL}${SEARCH_ENDPOINT}?q=${q}`;
 
   try {
     const response = await fetch(url, { method: "GET" });
@@ -45,10 +45,6 @@ const getItems = async (q: string) => {
       );
 
     const results: ResposeItems = {
-      author: {
-        name: "Maria",
-        lastname: "Giraldo",
-      },
       categories: [],
       items,
     };
@@ -60,13 +56,19 @@ const getItems = async (q: string) => {
 
 export const getAllProducts = async (req: Request, res: Response) => {
   const { q } = req.query || "";
+
   try {
     if (q) {
       const data = await getItems(q.toString());
-      return res.status(200).send(data);
+      const dataToSend: ResposeItemsWithAuthor = {
+        ...req.body.inject,
+        ...data,
+      };
+      return res.status(200).json(dataToSend);
+    } else {
+      return res.status(400).json({ error: "No query to search provided." });
     }
   } catch (error: any) {
-    console.log("error", error)
-    return res.status(400).send({ error: error.message});
+    return res.status(400).json({ error: error.message });
   }
 };

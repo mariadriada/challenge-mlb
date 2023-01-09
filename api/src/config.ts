@@ -10,12 +10,16 @@ interface ENV {
     SECRET_KEY: Secret | undefined;
     USER_NAME: string | undefined;
     USER_LASTNAME: string | undefined;
+    API_URL: string | undefined;
+    SEARCH_ENDPOINT: string | undefined;
 }
 
 interface Config {
     SECRET_KEY: Secret;
     USER_NAME: string;
     USER_LASTNAME: string;
+    API_URL: string;
+    SEARCH_ENDPOINT: string
 }
 
 // Loading process.env as ENV interface
@@ -23,7 +27,9 @@ const getConfig = (): ENV => {
   return {
     SECRET_KEY: process.env.SECRET_KEY,
     USER_NAME: process.env.USER_NAME,
-    USER_LASTNAME: process.env.USER_LASTNAME
+    USER_LASTNAME: process.env.USER_LASTNAME,
+    API_URL: process.env.API_URL,
+    SEARCH_ENDPOINT: process.env.SEARCH_ENDPOINT,
   };
 };
 
