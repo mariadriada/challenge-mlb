@@ -12,6 +12,7 @@ interface ENV {
     USER_LASTNAME: string | undefined;
     API_URL: string | undefined;
     SEARCH_ENDPOINT: string | undefined;
+    ITEMS_ENDPOINT: string | undefined;
 }
 
 interface Config {
@@ -19,7 +20,9 @@ interface Config {
     USER_NAME: string;
     USER_LASTNAME: string;
     API_URL: string;
-    SEARCH_ENDPOINT: string
+    SEARCH_ENDPOINT: string;
+    ITEMS_ENDPOINT: string 
+
 }
 
 // Loading process.env as ENV interface
@@ -30,6 +33,7 @@ const getConfig = (): ENV => {
     USER_LASTNAME: process.env.USER_LASTNAME,
     API_URL: process.env.API_URL,
     SEARCH_ENDPOINT: process.env.SEARCH_ENDPOINT,
+    ITEMS_ENDPOINT: process.env.ITEMS_ENDPOINT,
   };
 };
 

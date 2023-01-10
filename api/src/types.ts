@@ -14,6 +14,16 @@ export type Item = {
   state_name: string;
 };
 
+export type OneItem = {
+  id: string;
+  title: string;
+  price: Price;
+  picture: string;
+  condition: string;
+  free_shipping: boolean;
+  description: string;
+};
+
 export type Author = {
   name: string;
   lastname: string;
