@@ -16,4 +16,9 @@ module.exports = {
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
   },
+  env: {
+    es2020: true,
+    node: true,
+    jest: true,
+  },
 };
