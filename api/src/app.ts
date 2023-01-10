@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import cors from 'cors';
 
 import { loadApiEndpoints } from "./controllers/api";
 
@@ -7,6 +8,7 @@ import { loadApiEndpoints } from "./controllers/api";
 const app = express();
 
 // Express configuration
+app.use(cors());
 app.set("port", process.env.PORT || 3001);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
