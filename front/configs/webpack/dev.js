@@ -7,7 +7,7 @@ module.exports = merge(commonConfig, {
   mode: "development",
   devServer: {
     hot: true,
-    historyApiFallback: true, 
+    historyApiFallback: true, // to react-router-dom
     port: 3000,
   },
   devtool: "cheap-module-source-map",

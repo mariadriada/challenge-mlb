@@ -1,7 +1,7 @@
 import React, {FC} from "react"
 
 import { useGlobalStore } from "../../redux-toolkit/store"
-import "./styles.scss"
+import "./button.scss"
 
 const Button:FC = ()=> {
     const {testMessage} = useGlobalStore()

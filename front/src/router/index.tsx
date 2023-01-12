@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage, SearchPage, DetailPage } from "../pages";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
-  { path: "/search", element: <SearchPage /> },
+  { path: "/", element: <HomePage /> , errorElement: <div>Page not found!</div>},
+  { path: "/items/search/:q", element: <SearchPage /> },
   { path: "/detail", element: <DetailPage /> },
 ]);
 
-export const CustomRouterProvider = () => <RouterProvider router={router}></RouterProvider>
-
-
+export const CustomRouterProvider = () => (
+  <RouterProvider router={router}></RouterProvider>
+);

@@ -1,0 +1,10 @@
+@import "../../general-styles/variables.scss";
+
+.search-bar {
+  align-items: center;
+  background-color: $mainColor;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 5%;
+  width: $width100per;
+}

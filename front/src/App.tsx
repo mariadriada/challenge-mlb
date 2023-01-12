@@ -1,15 +1,19 @@
 import React from 'react';
 
 import { GlobalStoreProvider } from './redux-toolkit/store';
-import { Button } from './components/Button';
+import { SearchBar } from './components/SearchBar';
 import {CustomRouterProvider} from "./router"
+
+import "./general-styles/global.scss"
 
 function App () {
   return (
+    <div>
     <GlobalStoreProvider>
-      <Button></Button>
+      <SearchBar/>
       <CustomRouterProvider/>
     </GlobalStoreProvider>
+    </div>
   );
 }
 

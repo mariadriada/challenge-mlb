@@ -1,0 +1,44 @@
+@import "../../../general-styles/variables.scss";
+@import "../../../general-styles/extends.scss";
+
+.search-input {
+  background-color: $whiteColor;
+  border-radius: $sizex4;
+  display: flex;
+  width: $widhthMainContent;
+  &:hover {
+    border: 1px solid $thirdColor;
+  }
+
+  .search-input__input {
+    @extend .reset-all-styles;
+    background-color: $whiteColor;
+    border-radius: $sizex4 0 0 $sizex4;
+    font-size: $sizex18;
+    padding: 0.5rem;
+    width: $width100per;
+  }
+
+  .search-input__button {
+    align-items: center;
+    background-color: $baseColor;
+    border-radius: 0 $sizex4 $sizex4 0;
+    cursor: pointer;
+    display: flex;
+    height: inherit;
+    justify-content: center;
+    width: 3rem;
+
+    img {
+      max-width: calc($baseSize*1.2);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &::before {
+      content: "";
+    }
+  }
+}
