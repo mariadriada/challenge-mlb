@@ -14,7 +14,6 @@ const ListItem: FC<Item> = ({
   free_shipping: freeShipping,
   state_name: stateName,
 }: Item) => {
-  console.log(price);
   const { amount } = price;
   return (
     <div className="list-item">
@@ -23,7 +22,7 @@ const ListItem: FC<Item> = ({
       </div>
       <div className="list-item__detail">
         <span className="list-item__detail-price">
-          {formatter().format(amount).replace("$", "$  ")}
+          {formatter().format(amount).replace("$", "$  ").replace(",", ".")}
           {freeShipping && (
             <div className="list-item__detail-free">
               <FreeShipping />
