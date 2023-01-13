@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "f409a686-23bf-40b2-be01-4881485f0b18",
+		"name": "api-mlb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3373292"
+	},
+	"item": [
+		{
+			"name": "Get items",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get one product",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
