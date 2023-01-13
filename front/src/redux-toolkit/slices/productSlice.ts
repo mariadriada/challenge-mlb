@@ -11,6 +11,7 @@ interface ProductState {
   breadcrumbData: Array<string>;
   breadcrumbDataOne: Array<string>;
   currentProduct: OneItem;
+  error: Boolean;
 }
 
 const initialState: ProductState = {
@@ -19,6 +20,7 @@ const initialState: ProductState = {
   breadcrumbData: [],
   currentProduct: {},
   breadcrumbDataOne: [],
+  error: false
 };
 
 export const searchProducts = createAsyncThunk(
@@ -72,8 +74,16 @@ export const ProductSlice = createSlice({
     builder.addCase(searchProducts.fulfilled, (state, { payload }) => {
       state.products = payload;
     });
+    //TODO: apply to UI
+    builder.addCase(searchProducts.rejected, (state, { payload }) => {
+      state.error = true
+    });
     builder.addCase(searchOneProduct.fulfilled, (state, { payload }) => {
       state.currentProduct = payload;
+    });
+    //TODO: apply to UI
+    builder.addCase(searchOneProduct.rejected, (state, { payload }) => {
+      state.error = true;
     });
   },
 });
