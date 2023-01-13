@@ -12,8 +12,6 @@ interface Props {
 }
 
 const withQueryParams = (Component: FC<any>, param: string) => (props: any) => {
-
-
   const location = useLocation();
   const { search } = location || "";
 
@@ -35,32 +33,3 @@ const withQueryParams = (Component: FC<any>, param: string) => (props: any) => {
 };
 
 export default withQueryParams;
-/*
-export function withQueryParams<T extends WithProps = WithProps>(
-    WrappedComponent: React.ComponentType<T>
-  )
-
-  export default withQueryParams
-
-  const withQueryParams:<T extends WithProps = WithProps> = ( WrappedComponent: React.ComponentType<T>) => {
-
-  }
-
-
-const withQueryParams: <T extends WithProps = WithProps> = (WrappedComponent: React.ComponentType<T>) => {
-  const [query, setQuery] = useState<string>("");
-  const location = useLocation();
-  const { search } = location || "";
-
-  if (!search && search.indexOf("?search=") < 0) {
-    const text = search.slice(8);
-    setQuery(text)
-  }
-
-  const WithQueryParam = (props: any) => {
-    return <Component {...props} />;
-  };
-
-  return WithQueryParam;
-};
-*/

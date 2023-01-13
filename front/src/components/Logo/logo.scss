@@ -1,8 +1,9 @@
 @import "../../general-styles/variables.scss";
-@import "../../general-styles/extends.scss";
 
 .logo {
+  cursor: pointer;
   margin-right: $baseSize;
+
   img {
     max-width: calc($baseSize * 4);
 

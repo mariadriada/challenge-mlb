@@ -7,7 +7,7 @@
   display: flex;
   width: $widhthMainContent;
   &:hover {
-    border: 1px solid $thirdColor;
+    border: 1px solid $thirdColorOpc;
   }
 
   .search-input__input {
@@ -30,7 +30,7 @@
     width: 3rem;
 
     img {
-      max-width: calc($baseSize*1.2);
+      max-width: calc($baseSize * 1.2);
 
       &:hover {
         transform: scale(1.1);

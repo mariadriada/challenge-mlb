@@ -19,4 +19,4 @@ const getAll = async (query: string, token: string) => {
   }
 };
 
-export default getAll
+export default getAll;

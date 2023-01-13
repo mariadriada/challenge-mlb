@@ -1,13 +1,12 @@
 import React, { FC } from "react";
 
-import FreeShippingMobileImg from "../../assets/images/ic_shipping.png";
-import FreeShippingDesktopImg from "../../assets/images/ic_shipping@2x.png";
+import FreeShippingImg from "../../assets/images/ic_shipping.png";
 import "./free-shipping.scss";
 
 const FreeShipping: FC = () => {
   return (
     <div className="free-shiping">
-      <img src={FreeShippingMobileImg} alt="" />
+      <img src={FreeShippingImg} alt="" />
     </div>
   );
 };

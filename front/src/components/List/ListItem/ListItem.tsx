@@ -19,9 +19,9 @@ const ListItem: FC<Item> = ({
   return (
     <div className="list-item">
       <Link to={`/items/${id}`}>
-      <div className="list-item__img">
-        <img src={picture} alt={title} />
-      </div>
+        <div className="list-item__img">
+          <img src={picture} alt={title} />
+        </div>
       </Link>
       <div className="list-item__detail">
         <span className="list-item__detail-price">
@@ -36,7 +36,7 @@ const ListItem: FC<Item> = ({
         <p>{condition}</p>
       </div>
       <div className="list-item__state">{stateName}</div>
-      <div className="list-item__line"/>
+      <div className="list-item__line" />
     </div>
   );
 };

@@ -31,11 +31,7 @@ export const authenticate = createAsyncThunk(
 export const AuthSlice = createSlice({
   name: "authentication",
   initialState,
-  reducers: {
-    resetAuth: (state, action) => {
-      console.log("Reset auth...", state, action);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(authenticate.fulfilled, (state, { payload }) => {
       state.isAuthenticated = true;

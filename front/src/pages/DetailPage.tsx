@@ -7,10 +7,10 @@ import { Detail } from "../components/Detail";
 import { Breadcrumb } from "../components/Breadcrumb";
 import { SearchBar } from "../components/SearchBar";
 import { LayoutContent } from "../components/LayoutContent";
-import useAuth from "../hooks/useAuth";
 import { user } from "../auth";
 import { goToSearch } from "../general-functions";
 import { ParamsToSearch } from "../types";
+import useAuth from "../hooks/useAuth";
 
 const DetailPage = () => {
   const { token } = useAuth(user);

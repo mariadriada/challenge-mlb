@@ -1,11 +1,11 @@
 @import "../../general-styles/variables.scss";
-@import "../../general-styles/extends.scss";
 
 .button {
-  padding: $baseSize 0;
   background-color: $blueColor;
   border-radius: $sizex4;
   color: $whiteColor;
-  text-align: center;
+  cursor: pointer;
   font-size: $sizex18;
+  padding: $baseSize 0;
+  text-align: center;
 }

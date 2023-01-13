@@ -7,14 +7,14 @@ const useProduct = (query: string, token: string) => {
   const { products, isAuthenticated, searchProducts } = useGlobalStore();
 
   useEffect(() => {
-    if(isAuthenticated) {
-      const params: ParamsToSearch = {query, token}
+    if (isAuthenticated) {
+      const params: ParamsToSearch = { query, token };
       token && searchProducts(params);
     }
   }, [token, isAuthenticated]);
 
   return {
-    products
+    products,
   };
 };
 

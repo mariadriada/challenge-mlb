@@ -13,7 +13,7 @@ const Detail: FC<OneItem> = ({
   condition,
   free_shipping: freeShiping,
   sold_quantity: soldQuantity,
-  description
+  description,
 }: OneItem) => {
   return (
     <section className="detail">
@@ -26,7 +26,11 @@ const Detail: FC<OneItem> = ({
         </span>
         <h2>{title}</h2>
         <span>
-        {price?.amount && formatter().format(price?.amount).replace("$", "$  ").replace(",", ".")}
+          {price?.amount &&
+            formatter()
+              .format(price?.amount)
+              .replace("$", "$  ")
+              .replace(",", ".")}
         </span>
         <Button>Comprar</Button>
       </div>

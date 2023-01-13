@@ -64,10 +64,10 @@ $baseSixeX2: $baseSize * 2;
 }
 
 @media (max-width: 840px) {
-  .detail{
+  .detail {
     align-items: center;
     flex-direction: column;
-    
+
     .detail__image {
       text-align: center;
 
@@ -87,10 +87,9 @@ $baseSixeX2: $baseSize * 2;
     }
 
     .detail__description {
-      p{
+      p {
         max-width: 100%;
       }
     }
   }
 }
-

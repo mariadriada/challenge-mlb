@@ -1,6 +1,6 @@
 /**
  * Function goToSearch: Redirect to search page
- * @params: 
+ * @params:
  *  - query: string, text to search
  *  - navidage: instace if react router navidator
  */
@@ -15,15 +15,16 @@ export const goToSearch = (
  * Function formatter: Apply formater to price value
  * return: Intl object
  */
-export const formatter = () => new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-});
+export const formatter = () =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+  });
 
 /**
  * Function sortArray: Sort descending string array bythe number of repetitions
- * @params: 
+ * @params:
  *  - dataList: Array<string>, data source to sort
  * return: string array with data sorted
  */
