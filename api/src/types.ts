@@ -40,3 +40,8 @@ export type ResposeItemsWithAuthor = {
   categories: Array<string>;
   items: Array<Item>;
 };
+
+export type ItemCondition = {
+  id: string;
+  value_name: string
+}

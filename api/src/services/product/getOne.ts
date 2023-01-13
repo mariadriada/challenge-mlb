@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import config from "../../config";
 const { API_URL, ITEMS_ENDPOINT } = config;
 import { getDescription } from "./getDescription";
-import { OneItem } from "../../types";
+import { OneItem, ItemCondition } from "../../types";
 
 export const getOne = async (id: string) => {
   const url = `${API_URL}${ITEMS_ENDPOINT}${id}`;
@@ -20,9 +20,13 @@ export const getOne = async (id: string) => {
       thumbnail,
       shipping,
       sold_quantity: soldQuantity,
+      attributes
     } = data;
-    const { free_shipping: freeShipping } = shipping;
 
+    const { free_shipping: freeShipping } = shipping;
+    const itemContition: ItemCondition = attributes.find(
+      (item: ItemCondition) => item.id === "ITEM_CONDITION"
+    );
     const description = await getDescription(id);
 
     const item: OneItem = {
@@ -34,7 +38,7 @@ export const getOne = async (id: string) => {
         decimals: 0,
       },
       picture: thumbnail,
-      condition,
+      condition: itemContition.value_name,
       free_shipping: freeShipping,
       sold_quantity: soldQuantity,
       description,

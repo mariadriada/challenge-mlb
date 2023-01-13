@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 import config from "../../config";
 const { API_URL, SEARCH_ENDPOINT } = config;
-import { Item, ResposeItems } from "../../types";
+import { Item, ResposeItems, ItemCondition } from "../../types";
 
 export const getItems = async (q: string) => {
   const url = `${API_URL}${SEARCH_ENDPOINT}?q=${q}`;
@@ -30,11 +30,6 @@ export const getItems = async (q: string) => {
           const { free_shipping: freeShipping } = shipping;
           const { state_name: stateName } = address;
           categories.push(categoryId)
-        
-          type ItemCondition = {
-            id: string;
-            value_name: string
-          }
           const itemContition: ItemCondition = attributes.find((item: ItemCondition) =>item.id==="ITEM_CONDITION")
           
           // Calculate number of decimals based on the price
