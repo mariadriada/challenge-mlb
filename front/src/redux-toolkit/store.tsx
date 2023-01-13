@@ -25,7 +25,7 @@ export const useGlobalStore = () => {
   const productSelect = useGlobalSelector(selectProducts);
 
   const {token, isAuthenticated} = authSelect
-  const {queryString, products} = productSelect
+  const {queryString, products, breadcrumbData} = productSelect
 
   const dispatch = useGlobalDispatch();
   return {
@@ -33,6 +33,7 @@ export const useGlobalStore = () => {
     isAuthenticated,
     products,
     queryString,
+    breadcrumbData,
     authenticate: (user: Author) => dispatch(authenticate(user)),
     searchProducts: (query: string) => dispatch(searchProducts(query)),
     setQueryString: (query: string) => dispatch(setQueryString(query)),

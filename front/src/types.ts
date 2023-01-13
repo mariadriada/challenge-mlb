@@ -1,25 +1,25 @@
-import {ReactNode} from "react"
+import { ReactNode } from "react";
 
 export type StoreProviderProps = {
   children: ReactNode;
 };
 
-export type WithChildren =  {
-  children: ReactNode
-}
+export type WithChildren = {
+  children: ReactNode;
+};
 
 export type InputProps = {
   type: "text" | "number";
   placeholder: string;
-  textInput: string,
-  setTextInput: Function
-}
+  textInput: string;
+  setTextInput: Function;
+};
 
 export type SearchInputProps = {
-  textInput: string,
-  setTextInput: (query: string) => void,
-  handleSearch: (query: string) => void
-}
+  textInput: string;
+  setTextInput: (query: string) => void;
+  handleSearch: (query: string) => void;
+};
 
 export type Price = {
   currency: string;
@@ -53,14 +53,18 @@ export type Author = {
 };
 
 export type ParamsToSearch = {
-  query: string,
-  token: string
-}
+  query: string;
+  token: string;
+};
 
 export type SearchPageProps = {
-  query: string,
-}
+  query: string;
+};
 
 export type ListProps = {
-  dataList: Array<Item>,
-}
+  dataList: Array<Item>;
+};
+
+export type BreadcrumbProps = {
+  data: Array<string>;
+};

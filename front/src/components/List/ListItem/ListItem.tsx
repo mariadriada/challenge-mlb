@@ -23,7 +23,7 @@ const ListItem: FC<Item> = ({
       </div>
       <div className="list-item__detail">
         <span className="list-item__detail-price">
-          {formatter.format(amount)}
+          {formatter().format(amount).replace("$", "$  ")}
           {freeShipping && (
             <div className="list-item__detail-free">
               <FreeShipping />
@@ -31,6 +31,7 @@ const ListItem: FC<Item> = ({
           )}
         </span>
         <p>{title}</p>
+        <p>{condition}</p>
       </div>
       <div className="list-item__state">{stateName}</div>
     </div>

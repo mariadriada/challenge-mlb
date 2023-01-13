@@ -6,4 +6,11 @@
   background-color: $baseColor;
   font-size: $sizex14;
   padding: calc($baseSize);
+  color: $thirdColor;
+  padding-left: 0;
+
+  .breadcrumb__Link--disable {
+    @extend .reset-all-styles;
+    pointer-events: none;
+  }
 }

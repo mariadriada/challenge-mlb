@@ -1,4 +1,8 @@
-import { createSlice, createAsyncThunk, AsyncThunkAction } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  AsyncThunkAction,
+} from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 import type { RootState } from "../store";
@@ -6,10 +10,9 @@ import { login } from "../../services/auth/authenticate";
 import { Item, Author } from "../../types";
 import { useGlobalDispatch } from "../hooks";
 
-
 interface AuthState {
   token: string;
-  isAuthenticated: Boolean
+  isAuthenticated: Boolean;
 }
 
 const initialState: AuthState = {
@@ -20,8 +23,8 @@ const initialState: AuthState = {
 export const authenticate = createAsyncThunk(
   "authentication/auth",
   async (user: Author) => {
-    const data = await login(user)
-    return data
+    const data = await login(user);
+    return data;
   }
 );
 
@@ -29,20 +32,18 @@ export const AuthSlice = createSlice({
   name: "authentication",
   initialState,
   reducers: {
-   resetAuth: (state, action) => {
-    console.log("Reset auth...", state, action)
-   }
+    resetAuth: (state, action) => {
+      console.log("Reset auth...", state, action);
+    },
   },
   extraReducers: (builder) => {
-    builder.addCase(authenticate.fulfilled, (state, {payload}) => {
-      state.isAuthenticated = true
+    builder.addCase(authenticate.fulfilled, (state, { payload }) => {
+      state.isAuthenticated = true;
       state.token = payload.token;
     });
-  }
+  },
 });
 
-export const selectState = (state: RootState) => state.authentication
-
-
+export const selectState = (state: RootState) => state.authentication;
 
 export default AuthSlice.reducer;

@@ -24,7 +24,8 @@ type Param = {
 const SearchPage: FC<SearchPageProps> = ({ query }: SearchPageProps) => {
   const { token } = useAuth(user);
   const { products } = useProduct(query, token);
-  const { queryString, setQueryString } = useGlobalStore();
+  const { items } = products;
+  const { queryString, breadcrumbData, setQueryString } = useGlobalStore();
   const navigate = useNavigate();
 
   const handleSearch = (query: string) => {
@@ -38,8 +39,8 @@ const SearchPage: FC<SearchPageProps> = ({ query }: SearchPageProps) => {
         setTextInput={setQueryString}
         handleSearch={handleSearch}
       />
-      <Breadcrumb/>
-      <List dataList={products.items}/>
+      <Breadcrumb data={breadcrumbData}/>
+      <List dataList={items} />
     </div>
   );
 };
