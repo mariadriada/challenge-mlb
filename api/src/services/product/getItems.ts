@@ -10,6 +10,8 @@ export const getItems = async (q: string) => {
   try {
     const response = await fetch(url, { method: "GET" });
     const data = await response.json();
+    const categories:Array<string> = [] 
+
     const items = data.results
       .filter((_: any, i: number) => i < 4)
       .map(
@@ -22,9 +24,11 @@ export const getItems = async (q: string) => {
           thumbnail,
           shipping,
           address,
+          category_id: categoryId
         }: any) => {
           const { free_shipping: freeShipping } = shipping;
           const { state_name: stateName } = address;
+          categories.push(categoryId)
           const item: Item = {
             id,
             title,
@@ -43,7 +47,7 @@ export const getItems = async (q: string) => {
       );
 
     const results: ResposeItems = {
-      categories: [],
+      categories,
       items,
     };
     return results;
