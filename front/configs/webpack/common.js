@@ -10,7 +10,6 @@ module.exports = {
   context: resolve(__dirname, "../../src"),
   module: {
     rules: [
-   
       {
         test: [/\.jsx?$/, /\.tsx?$/],
         use: ["babel-loader"],
@@ -26,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-       type: "asset/resource",
+        type: "asset/resource",
       },
     ],
   },

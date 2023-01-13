@@ -16,4 +16,3 @@ module.exports = merge(commonConfig, {
   devtool: "cheap-module-source-map",
   plugins: [new ReactRefreshPlugin()],
 });
-

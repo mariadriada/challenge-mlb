@@ -23,7 +23,7 @@ const SearchInput: FC<SearchInputProps> = ({
         textInput={textInput}
         setTextInput={setTextInput}
       />
-      <div className="search-input__button" onClick={handleClick}>
+      <div className="search-input__button" data-testid="search-input__button" onClick={handleClick}>
         <picture>
           <source srcSet={SearchMobileImg} media="(max-width:650px)" />
           <img src={SearchDesktopImg} alt="" />
