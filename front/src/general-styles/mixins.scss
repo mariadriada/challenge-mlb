@@ -1,0 +1,6 @@
+@mixin basic-flex($jc:center, $align:center) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $align;
+  }
+  

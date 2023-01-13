@@ -1,0 +1,11 @@
+@import "../../general-styles/variables.scss";
+
+.button {
+  background-color: $blueColor;
+  border-radius: $sizex4;
+  color: $whiteColor;
+  cursor: pointer;
+  font-size: $sizex18;
+  padding: $baseSize 0;
+  text-align: center;
+}

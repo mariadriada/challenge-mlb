@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 import config from "../../config";
 const { API_URL, SEARCH_ENDPOINT } = config;
-import { Item, ResposeItems } from "../../types";
+import { Item, ResposeItems, ItemCondition } from "../../types";
 
 export const getItems = async (q: string) => {
   const url = `${API_URL}${SEARCH_ENDPOINT}?q=${q}`;
@@ -10,6 +10,8 @@ export const getItems = async (q: string) => {
   try {
     const response = await fetch(url, { method: "GET" });
     const data = await response.json();
+    const categories:Array<string> = [] 
+
     const items = data.results
       .filter((_: any, i: number) => i < 4)
       .map(
@@ -22,19 +24,27 @@ export const getItems = async (q: string) => {
           thumbnail,
           shipping,
           address,
+          category_id: categoryId,
+          attributes,
         }: any) => {
           const { free_shipping: freeShipping } = shipping;
           const { state_name: stateName } = address;
+          categories.push(categoryId)
+          const itemContition: ItemCondition = attributes.find((item: ItemCondition) =>item.id==="ITEM_CONDITION")
+          
+          // Calculate number of decimals based on the price
+          const decimals = price.toString().indexOf(".") >= 0 ? price.toString().split(".")[1].length : 0
+         
           const item: Item = {
             id,
             title,
             price: {
               currency: currencyId,
               amount: price,
-              decimals: 0,
+              decimals,
             },
             picture: thumbnail,
-            condition,
+            condition: itemContition.value_name,
             free_shipping: freeShipping,
             state_name: stateName,
           };
@@ -43,7 +53,7 @@ export const getItems = async (q: string) => {
       );
 
     const results: ResposeItems = {
-      categories: [],
+      categories,
       items,
     };
     return results;

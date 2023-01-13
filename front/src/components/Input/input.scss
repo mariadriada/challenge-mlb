@@ -1,0 +1,12 @@
+@import "../../general-styles/variables.scss";
+@import "../../general-styles/extends.scss";
+
+.input {
+  @extend .reset-all-styles;
+  background-color: $whiteColor;
+  border-radius: $sizex4 0 0 $sizex4;
+  font-size: $sizex18;
+  min-width: calc($baseSize * 10);
+  padding: $middleBaseSize;
+  width: $width100per;
+}

@@ -21,7 +21,9 @@ export type OneItem = {
   picture: string;
   condition: string;
   free_shipping: boolean;
+  sold_quantity: number;
   description: string;
+  category: string
 };
 
 export type Author = {
@@ -39,3 +41,8 @@ export type ResposeItemsWithAuthor = {
   categories: Array<string>;
   items: Array<Item>;
 };
+
+export type ItemCondition = {
+  id: string;
+  value_name: string
+}

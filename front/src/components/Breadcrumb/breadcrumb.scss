@@ -1,0 +1,16 @@
+@import "../../general-styles/variables.scss";
+@import "../../general-styles/extends.scss";
+
+.breadcrumb {
+  @extend .main-container;
+  background-color: $baseColor;
+  color: $thirdColor;
+  font-size: $sizex14;
+  padding-left: 0;
+  padding: calc($baseSize);
+
+  .breadcrumb__Link--disable {
+    @extend .reset-all-styles;
+    pointer-events: none;
+  }
+}

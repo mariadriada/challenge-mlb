@@ -1,0 +1,14 @@
+@import "../../general-styles/variables.scss";
+
+.logo {
+  cursor: pointer;
+  margin-right: $baseSize;
+
+  img {
+    max-width: calc($baseSize * 4);
+
+    @media (max-width: 650px) {
+      max-width: calc($baseSize * 3.3);
+    }
+  }
+}

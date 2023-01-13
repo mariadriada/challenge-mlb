@@ -1,0 +1,5 @@
+@import "../../general-styles/mixins.scss";
+
+.free-shiping {
+  @include basic-flex();
+}
