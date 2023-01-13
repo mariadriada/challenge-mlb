@@ -34,6 +34,7 @@ const ListItem: FC<Item> = ({
         <p>{condition}</p>
       </div>
       <div className="list-item__state">{stateName}</div>
+      <div className="list-item__line"/>
     </div>
   );
 };

@@ -6,6 +6,7 @@ $size: calc($baseSize * 11.25);
 
 .list-item {
   @include basic-flex(flex-start);
+  flex-wrap: wrap;
   color: $secondaryColor;
   width: $width100per;
 
@@ -48,6 +49,15 @@ $size: calc($baseSize * 11.25);
     font-size: $sizex12;
     min-width: $baseSize * 5;
     width: 20%;
+  }
+
+  .list-item__line {
+    width: 100%;
+    height: .5px;
+    background-color: $baseColor;
+    display: block;
+    margin: 0 auto;
+    margin: 0 2%;
   }
 
   @media (max-width: 650px) {
