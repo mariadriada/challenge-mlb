@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import { useGlobalStore } from "../redux-toolkit/store";
 import { Detail } from "../components/Detail";
@@ -35,15 +36,31 @@ const DetailPage = () => {
 
   return (
     <>
-      <SearchBar
-        textInput={queryString}
-        setTextInput={setQueryString}
-        handleSearch={handleSearch}
-      />
-      <Breadcrumb data={breadcrumbDataOne} />
-      <LayoutContent>
-        <Detail {...product} />
-      </LayoutContent>
+      <Helmet>
+        <title>{`Detalles de ${product.id}`}</title>
+        <meta
+          name="description"
+          content={`Mostrar detalles de ${product.title}`}
+        />
+      </Helmet>
+
+      <section>
+        <SearchBar
+          textInput={queryString}
+          setTextInput={setQueryString}
+          handleSearch={handleSearch}
+        />
+      </section>
+
+      <section>
+        <Breadcrumb data={breadcrumbDataOne} />
+      </section>
+
+      <section>
+        <LayoutContent>
+          <Detail {...product} />
+        </LayoutContent>
+      </section>
     </>
   );
 };

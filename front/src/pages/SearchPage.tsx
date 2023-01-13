@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import { useGlobalStore } from "../redux-toolkit/store";
 import { SearchBar } from "../components/SearchBar";
@@ -26,15 +27,31 @@ const SearchPage: FC<SearchPageProps> = ({ query }: SearchPageProps) => {
 
   return (
     <>
-      <SearchBar
-        textInput={queryString}
-        setTextInput={setQueryString}
-        handleSearch={handleSearch}
-      />
-      <Breadcrumb data={breadcrumbData} />
-      <LayoutContent>
-        <List dataList={items} />
-      </LayoutContent>
+      <Helmet>
+        <title>Buscar productos</title>
+        <meta
+          name="description"
+          content="Encuentra los productos que necesitas"
+        />
+      </Helmet>
+
+      <section>
+        <SearchBar
+          textInput={queryString}
+          setTextInput={setQueryString}
+          handleSearch={handleSearch}
+        />
+      </section>
+
+      <section>
+        <Breadcrumb data={breadcrumbData} />
+      </section>
+
+      <section>
+        <LayoutContent>
+          <List dataList={items} />
+        </LayoutContent>
+      </section>
     </>
   );
 };

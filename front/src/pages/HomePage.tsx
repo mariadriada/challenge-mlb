@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import { SearchBar } from "../components/SearchBar";
 import { useGlobalStore } from "../redux-toolkit/store";
@@ -14,11 +15,24 @@ const HomePage: FC = () => {
   };
 
   return (
-    <SearchBar
-      textInput={queryString}
-      setTextInput={setQueryString}
-      handleSearch={handleSearch}
-    />
+    <>
+      <Helmet>
+        <title>MercadoTest</title>
+        <meta name="description" content="Sitio web de e-commerce" />
+        <meta
+          name="keywords"
+          content="E-commerce, Hogar, Tecnologia, Entretenimiento"
+        />
+      </Helmet>
+
+      <section>
+        <SearchBar
+          textInput={queryString}
+          setTextInput={setQueryString}
+          handleSearch={handleSearch}
+        />
+      </section>
+    </>
   );
 };
 
