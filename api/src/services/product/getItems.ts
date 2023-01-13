@@ -24,21 +24,32 @@ export const getItems = async (q: string) => {
           thumbnail,
           shipping,
           address,
-          category_id: categoryId
+          category_id: categoryId,
+          attributes,
         }: any) => {
           const { free_shipping: freeShipping } = shipping;
           const { state_name: stateName } = address;
           categories.push(categoryId)
+        
+          type ItemCondition = {
+            id: string;
+            value_name: string
+          }
+          const itemContition: ItemCondition = attributes.find((item: ItemCondition) =>item.id==="ITEM_CONDITION")
+          
+          // Calculate number of decimals based on the price
+          const decimals = price.toString().indexOf(".") >= 0 ? price.toString().split(".")[1].length : 0
+         
           const item: Item = {
             id,
             title,
             price: {
               currency: currencyId,
               amount: price,
-              decimals: 0,
+              decimals,
             },
             picture: thumbnail,
-            condition,
+            condition: itemContition.value_name,
             free_shipping: freeShipping,
             state_name: stateName,
           };
