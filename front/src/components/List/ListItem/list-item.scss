@@ -1,0 +1,62 @@
+@import "../../../general-styles/variables.scss";
+@import "../../../general-styles/extends.scss";
+@import "../../../general-styles/mixins.scss";
+
+$size: calc($baseSize * 11.25);
+
+.list-item {
+  @include basic-flex(flex-start);
+  color: $secondaryColor;
+  width: $width100per;
+
+  .list-item__img {
+    height: $size;
+    margin: $baseSize;
+    width: $size;
+
+    img {
+      border-radius: $sizex4;
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  .list-item__detail {
+    height: $size;
+    width: 60%;
+
+    p {
+      font-size: $sizex18;
+      line-height: $sizex18;
+      max-width: 25rem;
+    }
+
+    .list-item__detail-price {
+      @include basic-flex(flex-start);
+      font-size: $sizex24;
+      line-height: $sizex24;
+      margin-bottom: $sizex32;
+    }
+
+    .list-item__detail-free {
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .list-item__state {
+    @include basic-flex();
+    font-size: $sizex12;
+    min-width: $baseSize * 5;
+    width: 20%;
+  }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+
+    .list-item__detail {
+      height: auto;
+      padding-bottom: $middleBaseSize;
+    }
+  }
+}

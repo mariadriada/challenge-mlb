@@ -5,7 +5,7 @@ import { HomePage, SearchPage, DetailPage } from "../pages";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> , errorElement: <div>Page not found!</div>},
-  { path: "/items/search/:q", element: <SearchPage /> },
+  { path: "/items", element: <SearchPage /> },
   { path: "/detail", element: <DetailPage /> },
 ]);
 

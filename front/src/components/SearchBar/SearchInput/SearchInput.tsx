@@ -1,4 +1,4 @@
-import React, { FC, FormEventHandler, useState } from "react";
+import React, { FC, useEffect } from "react";
 
 import { Input } from "../../Input";
 import { SearchInputProps } from "../../../types";
@@ -7,13 +7,17 @@ import SearchDesktopImg from "../../../assets/images/ic_Search@2x.png";
 import "./search-input.scss";
 
 const SearchInput: FC<SearchInputProps> = ({
+  textInput,
+  setTextInput,
   handleSearch,
 }: SearchInputProps) => {
-  const [textInput, setTextInput] = useState<string>("");
-
   const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     handleSearch(textInput);
   };
+
+  useEffect(() => {
+    console.log("textInput", textInput);
+  }, [textInput]);
 
   return (
     <div className="search-input">

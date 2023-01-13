@@ -1,0 +1,9 @@
+@import "../../general-styles/variables.scss";
+@import "../../general-styles/extends.scss";
+
+.breadcrumb {
+  @extend .main-container;
+  background-color: $baseColor;
+  font-size: $sizex14;
+  padding: calc($baseSize);
+}

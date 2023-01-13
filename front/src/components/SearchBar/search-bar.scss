@@ -1,10 +1,11 @@
 @import "../../general-styles/variables.scss";
+@import "../../general-styles/extends.scss";
 
 .search-bar {
+  @extend .main-container;
   align-items: center;
   background-color: $mainColor;
   display: flex;
   justify-content: center;
-  padding: 0.5rem 5%;
-  width: $width100per;
+  padding: 0.5rem 0;
 }
