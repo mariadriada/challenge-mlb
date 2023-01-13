@@ -5,21 +5,13 @@ import { useGlobalStore } from "../redux-toolkit/store";
 import { SearchBar } from "../components/SearchBar";
 import { List } from "../components/List";
 import { Breadcrumb } from "../components/Breadcrumb";
+import { LayoutContent } from "../components/LayoutContent";
+import { goToSearch } from "../general-functions";
+import { SearchPageProps } from "../types";
+import { user } from "../auth";
 import withQueryParams from "../HOC/withQueryParams";
 import useAuth from "../hooks/useAuth";
 import useProduct from "../hooks/useProduct";
-import { goToSearch } from "../general-functions";
-import { Author, SearchPageProps } from "../types";
-
-const user: Author = {
-  name: "Maria",
-  lastname: "Giraldo",
-};
-
-type Param = {
-  param: string;
-  query: string;
-};
 
 const SearchPage: FC<SearchPageProps> = ({ query }: SearchPageProps) => {
   const { token } = useAuth(user);
@@ -33,15 +25,17 @@ const SearchPage: FC<SearchPageProps> = ({ query }: SearchPageProps) => {
   };
 
   return (
-    <div>
+    <>
       <SearchBar
         textInput={queryString}
         setTextInput={setQueryString}
         handleSearch={handleSearch}
       />
-      <Breadcrumb data={breadcrumbData}/>
-      <List dataList={items} />
-    </div>
+      <Breadcrumb data={breadcrumbData} />
+      <LayoutContent>
+        <List dataList={items} />
+      </LayoutContent>
+    </>
   );
 };
 

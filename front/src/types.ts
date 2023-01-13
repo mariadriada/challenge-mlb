@@ -38,13 +38,14 @@ export type Item = {
 };
 
 export type OneItem = {
-  id: string;
-  title: string;
-  price: Price;
-  picture: string;
-  condition: string;
-  free_shipping: boolean;
-  description: string;
+  id?: string;
+  title?: string;
+  price?: Price;
+  picture?: string;
+  condition?: string;
+  free_shipping?: boolean;
+  sold_quantity?: number;
+  description?: string;
 };
 
 export type Author = {
@@ -53,8 +54,9 @@ export type Author = {
 };
 
 export type ParamsToSearch = {
-  query: string;
+  query?: string;
   token: string;
+  id?:string;
 };
 
 export type SearchPageProps = {

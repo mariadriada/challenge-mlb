@@ -20,7 +20,8 @@ export const getOne = async (id: string) => {
       thumbnail,
       shipping,
       sold_quantity: soldQuantity,
-      attributes
+      attributes,
+      category_id: categoryId
     } = data;
 
     const { free_shipping: freeShipping } = shipping;
@@ -42,6 +43,7 @@ export const getOne = async (id: string) => {
       free_shipping: freeShipping,
       sold_quantity: soldQuantity,
       description,
+      category: categoryId
     };
     return item;
   } catch (error: any) {

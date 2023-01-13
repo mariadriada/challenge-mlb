@@ -27,7 +27,8 @@
     "build": "npm  run clean-dist && webpack --config=configs/webpack/prod.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "develop": "webpack-dev-server --mode development"
+    "develop": "webpack-dev-server --mode development",
+    "start-d": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [

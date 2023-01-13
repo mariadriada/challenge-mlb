@@ -52,12 +52,11 @@ $size: calc($baseSize * 11.25);
   }
 
   .list-item__line {
-    width: 100%;
-    height: .5px;
+    width: $width100per;
+    height: 0.5px;
     background-color: $baseColor;
     display: block;
-    margin: 0 auto;
-    margin: 0 2%;
+    margin: 0 $baseSize;
   }
 
   @media (max-width: 650px) {

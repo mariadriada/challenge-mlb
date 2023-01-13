@@ -15,10 +15,6 @@ const SearchInput: FC<SearchInputProps> = ({
     handleSearch(textInput);
   };
 
-  useEffect(() => {
-    console.log("textInput", textInput);
-  }, [textInput]);
-
   return (
     <div className="search-input">
       <Input

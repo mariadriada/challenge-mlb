@@ -2,18 +2,20 @@ import { configureStore, Store } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import AuthReducer, { selectState, authenticate } from "./slices/authSlice";
-import productSlice, {selectProducts, searchProducts, setQueryString} from "./slices/productSlice";
-import {
-  useGlobalDispatch,
-  useGlobalSelector,
-} from "./hooks";
+import productSlice, {
+  selectProducts,
+  searchProducts,
+  setQueryString,
+  searchOneProduct,
+} from "./slices/productSlice";
+import { useGlobalDispatch, useGlobalSelector } from "./hooks";
 import { globalContext } from "./context";
 import { StoreProviderProps, Author } from "../types";
 
 export const store: Store = configureStore({
   reducer: {
     authentication: AuthReducer,
-    product: productSlice
+    product: productSlice,
   },
 });
 
@@ -24,8 +26,14 @@ export const useGlobalStore = () => {
   const authSelect = useGlobalSelector(selectState);
   const productSelect = useGlobalSelector(selectProducts);
 
-  const {token, isAuthenticated} = authSelect
-  const {queryString, products, breadcrumbData} = productSelect
+  const { token, isAuthenticated } = authSelect;
+  const {
+    queryString,
+    products,
+    breadcrumbData,
+    breadcrumbDataOne,
+    currentProduct,
+  } = productSelect;
 
   const dispatch = useGlobalDispatch();
   return {
@@ -34,9 +42,12 @@ export const useGlobalStore = () => {
     products,
     queryString,
     breadcrumbData,
+    breadcrumbDataOne,
+    currentProduct,
     authenticate: (user: Author) => dispatch(authenticate(user)),
     searchProducts: (query: string) => dispatch(searchProducts(query)),
     setQueryString: (query: string) => dispatch(setQueryString(query)),
+    searchOneProduct: (id: string) => dispatch(searchOneProduct(id)),
   };
 };
 

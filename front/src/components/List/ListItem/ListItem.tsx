@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 
 import { FreeShipping } from "../../FreeShipping";
 import { formatter } from "../../../general-functions";
@@ -17,9 +18,11 @@ const ListItem: FC<Item> = ({
   const { amount } = price;
   return (
     <div className="list-item">
+      <Link to={`/items/${id}`}>
       <div className="list-item__img">
         <img src={picture} alt={title} />
       </div>
+      </Link>
       <div className="list-item__detail">
         <span className="list-item__detail-price">
           {formatter().format(amount).replace("$", "$  ").replace(",", ".")}

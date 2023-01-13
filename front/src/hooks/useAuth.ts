@@ -7,7 +7,7 @@ const useAuth = (user: Author) => {
   const { token, isAuthenticated, authenticate } = useGlobalStore();
 
   useEffect(() => {
-    authenticate(user);
+    !isAuthenticated && authenticate(user);
   }, []);
 
   return {

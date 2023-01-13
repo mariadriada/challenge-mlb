@@ -1,7 +1,7 @@
 import { API_URL } from "../../constants";
 
-const getAll = async (query: string, token: string) => {
-  const url = `${API_URL}/items?q=${query}`;
+const getOne = async (id: string, token: string) => {
+  const url = `${API_URL}/items/${id}`;
 
   try {
     const response = await fetch(url, {
@@ -19,4 +19,4 @@ const getAll = async (query: string, token: string) => {
   }
 };
 
-export default getAll
+export default getOne;
