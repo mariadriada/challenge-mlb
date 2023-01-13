@@ -19,6 +19,7 @@ export const getOne = async (id: string) => {
       currency_id: currencyId,
       thumbnail,
       shipping,
+      sold_quantity: soldQuantity,
     } = data;
     const { free_shipping: freeShipping } = shipping;
 
@@ -35,6 +36,7 @@ export const getOne = async (id: string) => {
       picture: thumbnail,
       condition,
       free_shipping: freeShipping,
+      sold_quantity: soldQuantity,
       description,
     };
     return item;
