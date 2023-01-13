@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import { SearchBar } from "../components/SearchBar";
 import { useGlobalStore } from "../redux-toolkit/store";
-import { SearchInputProps } from "../types";
 import { goToSearch } from "../general-functions";
 
-const HomePage: FC<SearchInputProps> = () => {
+const HomePage:FC = () => {
   const { queryString, setQueryString } = useGlobalStore();
   const navigate = useNavigate();
 
